@@ -127,6 +127,17 @@ func (api *API) ListPipelineRuns(p string) (data []PipelineRun, err error) {
 	return
 }
 
+// GetPipelineRun func
+func (api *API) GetPipelineRun(p string, r string) (data PipelineRun, err error) {
+	url := fmt.Sprintf("%s/blue/rest/organizations/jenkins/pipelines/%s/runs/%s/", api.baseurl, p, r)
+	body, err := api.HTTPDo(url, "GET")
+	if err != nil {
+		return
+	}
+	json.Unmarshal(body, &data)
+	return
+}
+
 // ListRunNodes func
 func (api *API) ListRunNodes(p string, r string) (data []Node, err error) {
 	url := fmt.Sprintf("%s/blue/rest/organizations/jenkins/pipelines/%s/runs/%s/nodes/", api.baseurl, p, r)

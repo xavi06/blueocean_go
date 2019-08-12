@@ -15,7 +15,8 @@ func main() {
 	//res, err := api.ListNodeSteps("tomcat-fccs2-maven", "178", "18")
 	//res, err := api.GetStepLog("tomcat-fccs2-maven", "178", "18", "26")
 	//res, err := api.GetRunLog("tomcat-fccs2-maven", "178")
-	res, err := api.ListFavorites("root")
+	//res, err := api.ListFavorites("root")
+	res, err := api.GetPipelineRun("fccsseo", "9")
 	if err != nil {
 		panic(err)
 	}
